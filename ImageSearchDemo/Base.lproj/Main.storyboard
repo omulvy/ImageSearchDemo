@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,110 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageSearchDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atm-XO-Irz">
+                                <rect key="frame" x="114" y="421" width="147" height="30"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.93333333330000001" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Google Image Search">
+                                    <color key="titleColor" red="0.93333333330000001" green="0.31764705879999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchImageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8zp-gU-UuA"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bmb-fY-gMk">
+                                <rect key="frame" x="89" y="351" width="205" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Search Terms" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rco-Eg-m6D">
+                                <rect key="frame" x="113" y="291" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Atm-XO-Irz" secondAttribute="bottom" constant="216" id="EHs-cC-uwL"/>
+                            <constraint firstItem="bmb-fY-gMk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="GWu-8E-AgR"/>
+                            <constraint firstItem="bmb-fY-gMk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="331" id="QI8-gi-fgi"/>
+                            <constraint firstItem="Rco-Eg-m6D" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="271" id="Yrv-X1-fsk"/>
+                            <constraint firstItem="Atm-XO-Irz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lBy-9O-m9N"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bmb-fY-gMk" secondAttribute="trailing" constant="81" id="mky-A6-gk4"/>
+                            <constraint firstItem="Rco-Eg-m6D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w9I-fp-6xb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="queryTextField" destination="bmb-fY-gMk" id="EVv-9x-WKV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="CBV-Yf-M0J">
+            <objects>
+                <viewController storyboardIdentifier="ResultsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F3U-pf-cMK" customClass="ResultsViewController" customModule="ImageSearchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dUZ-xQ-kct">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nkt-jZ-xQI">
+                                <rect key="frame" x="0.0" y="59" width="375" height="608"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="F3U-pf-cMK" id="XQV-Qp-Bkh"/>
+                                    <outlet property="delegate" destination="F3U-pf-cMK" id="b45-NQ-qLX"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-u9-7VY">
+                                <rect key="frame" x="130.5" y="30" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nkt-jZ-xQI" firstAttribute="bottom" secondItem="uJO-PO-hsE" secondAttribute="bottom" id="BbE-kE-Pcj"/>
+                            <constraint firstItem="cSV-u9-7VY" firstAttribute="top" secondItem="uJO-PO-hsE" secondAttribute="top" constant="10" id="chG-I2-Wd3"/>
+                            <constraint firstItem="nkt-jZ-xQI" firstAttribute="leading" secondItem="uJO-PO-hsE" secondAttribute="leading" id="j7r-oq-WTM"/>
+                            <constraint firstItem="nkt-jZ-xQI" firstAttribute="trailing" secondItem="uJO-PO-hsE" secondAttribute="trailing" id="nGL-Y2-Jjm"/>
+                            <constraint firstItem="nkt-jZ-xQI" firstAttribute="top" secondItem="cSV-u9-7VY" secondAttribute="bottom" constant="8" id="rrD-vD-sJY"/>
+                            <constraint firstItem="cSV-u9-7VY" firstAttribute="centerX" secondItem="dUZ-xQ-kct" secondAttribute="centerX" id="vON-gp-uK5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uJO-PO-hsE"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="nkt-jZ-xQI" id="b9E-DF-CLJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wp9-YU-g5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="765.60000000000002" y="87.706146926536732"/>
+        </scene>
+        <!--Detail Result View Controller-->
+        <scene sceneID="nIN-c5-EQR">
+            <objects>
+                <viewController storyboardIdentifier="DetailResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H81-uE-gYU" customClass="DetailResultViewController" customModule="ImageSearchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ozt-46-o2V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="dUT-Kg-OCw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0kb-B0-ebV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1416.8" y="87.706146926536732"/>
         </scene>
     </scenes>
 </document>
