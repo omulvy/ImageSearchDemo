@@ -11,9 +11,37 @@ import XCTest
 
 class ImageSearchDemoTests: XCTestCase {
     
+    var viewController: ViewController!
+    
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.mainBundle)
+        viewController = storyboard.instantiateInitialViewController() as! ViewController
+    }
+    
+    func testInitiateSearch(){
+        let searchObject = Search()
+        searchObject.initiate {
+            //TODO
+        }
+    }
+    
+    func testFetchMore(){
+        let searchObject = Search()
+        searchObject.fetchMore {
+            //TODO
+        }
+    }
+    
+    func testSearch(){
+        let searchObject = Search()
+        //TODO Test that data model matches expecations across:
+        // Format of results from search engine(s), json parsed data, search object, consumers of search object (results and detail VCs)
+        
+
     }
     
     override func tearDown() {
@@ -21,10 +49,7 @@ class ImageSearchDemoTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

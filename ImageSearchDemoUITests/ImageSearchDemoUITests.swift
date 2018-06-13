@@ -28,9 +28,23 @@ class ImageSearchDemoUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testBlankField(){
+        XCUIApplication().buttons["Google Image Search"].tap()
+        //TODO record more when not overlimit
     }
+    
+    func testBasicSearchResultDetail(){
+        //Happy Path
+        let app = XCUIApplication()
+        let textField = app.otherElements.containing(.staticText, identifier:"Enter Search Terms").children(matching: .textField).element
+        textField.tap()
+        textField.typeText("")
+        textField.typeText("Minneapolis Sunset")
+        app.buttons["Google Image Search"].tap()
+        
+        //TODO record more when limit resets
+    }
+    
+
     
 }

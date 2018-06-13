@@ -25,10 +25,7 @@ class DetailResultViewController: UIViewController, WKUIDelegate  {
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         view = webView
-        debugPrint("Result info: \(searchResult?.contextLink)")
-
         let url = URL(string: (searchResult?.contextLink)!)
-        debugPrint("URL :\(url!)")
         let request = URLRequest(url: url!)
         webView.load(request)
     }
@@ -44,7 +41,5 @@ extension DetailResultViewController: ShowResultDelegate {
         //search result acquired
         self.searchResult = result
     }
-    
-    
 }
 
