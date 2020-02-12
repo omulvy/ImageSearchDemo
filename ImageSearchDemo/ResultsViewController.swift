@@ -40,7 +40,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //TODO
-        let resultCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "resultCell")
+        let resultCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "resultCell")
         resultCell.contentView.layer.borderWidth = 1
         resultCell.textLabel?.text = search?.results?[indexPath.row].title
         resultCell.detailTextLabel?.text = search?.results?[indexPath.row].description

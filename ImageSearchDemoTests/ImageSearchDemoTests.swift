@@ -18,7 +18,7 @@ class ImageSearchDemoTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.mainBundle)
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         viewController = storyboard.instantiateInitialViewController() as! ViewController
     }
     
